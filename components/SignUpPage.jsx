@@ -5,15 +5,11 @@ import {
   FaGoogle,
   FaLinkedin,
   FaRegEnvelope,
+  FaUser
 } from "react-icons/fa";
 import {MdLockOutline} from "react-icons/md"
 
-const LoginPage = () => {
-//      const [data,setdata]=useState({
-//         email,
-//         password
-//      })
-
+const SignUpPage = () => {
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen flex-1 px-20 text-center bg-white">
       <div className="bg-white rounded-xl shadow-2xl flex w-2/3 max-w-4xl">
@@ -23,7 +19,7 @@ const LoginPage = () => {
           </div>
           <div className="py-10">
             <h2 className="text-3xl font-bold text-green-500 mb-2">
-              Sign in to Account
+              Sign Up to Account
             </h2>
             <div className="border-2 w-10 border-green-500 inline-block mb-2"></div>
             <div className="flex justify-center my-2">
@@ -48,6 +44,15 @@ const LoginPage = () => {
             </div>
             <p className="text-gray-400 my-3">or use your email account</p>
             <div className="flex flex-col items-center">
+            <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">  
+                <FaUser className="text-gray-400 m-2" />
+                <input
+                  type="name"
+                  name="name"
+                  placeholder="Name"
+                  className="bg-gray-100 outline-none text-sm flex-1"
+                />
+              </div>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">  
                 <FaRegEnvelope className="text-gray-400 m-2" />
                 <input
@@ -62,7 +67,7 @@ const LoginPage = () => {
                 <input
                   type="password"
                   name="password"
-                  placeholder="Password"
+                  placeholder="Create Password"
                   className="bg-gray-100 outline-none text-sm flex-1"
                 />
               </div>
@@ -76,7 +81,7 @@ const LoginPage = () => {
             href="#"
             className="border-2 border-green-500 text-green-500 rounded-full px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white"
           >
-            Login
+            SignUp
           </a>
             </div>
           </div>
@@ -91,12 +96,12 @@ const LoginPage = () => {
             href="#"
             className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-green-500"
           >
-            Sign Up
+            Login
           </a>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default SignUpPage
