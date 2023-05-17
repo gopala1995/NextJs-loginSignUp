@@ -1,13 +1,12 @@
-import LoginPage from "@/components/LoginPage";
-import Navbar from "@/components/Navbar";
-import SignUpPage from "@/components/SignUpPage";
+import Navbar from "./nav/page";
+
 
 export default function Home() {
   return (
     <div>
-      {/* <Navbar/> */}
-      {/* <LoginPage/> */}
-      <SignUpPage/>
+
+      <Navbar/>
+    
     </div>
-  )
+  );
 }

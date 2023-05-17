@@ -1,4 +1,5 @@
-'use client'
+"use client";
+import Link from "next/link";
 import React, { useState } from "react";
 import {
   FaFacebookF,
@@ -6,13 +7,43 @@ import {
   FaLinkedin,
   FaRegEnvelope,
 } from "react-icons/fa";
-import {MdLockOutline} from "react-icons/md"
+import { MdLockOutline } from "react-icons/md";
 
-const LoginPage = () => {
-//      const [data,setdata]=useState({
-//         email,
-//         password
-//      })
+const login = () => {
+  const [inpval, setInpval] = useState({
+    email: "",
+    password: "",
+  });
+  console.log(inpval);
+
+  const setdata = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setInpval({ ...inpval, [name]: value });
+  };
+
+  const loginData = async (e) => {
+    e.preventDefault();
+    const { email, password } = inpval;
+    let data = {email,password}
+    const response = await fetch(
+      "https://nextjs-db-9eab1-default-rtdb.firebaseio.com/userData.json",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    ).then((res) => {
+      if (res.status === 200) {
+        alert("Successfully loged in");
+      } else {
+        alert("Please check your login information.");
+      }
+      console.log("Datttttta", res.json());
+    });
+  };
 
   return (
     <div className="flex flex-col items-center justify-center w-full min-h-screen flex-1 px-20 text-center bg-white">
@@ -48,22 +79,26 @@ const LoginPage = () => {
             </div>
             <p className="text-gray-400 my-3">or use your email account</p>
             <div className="flex flex-col items-center">
-              <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">  
+              <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">
                 <FaRegEnvelope className="text-gray-400 m-2" />
                 <input
                   type="email"
                   name="email"
                   placeholder="Email"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  value={inpval.email}
+                  onChange={setdata}
                 />
               </div>
-              <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">  
+              <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">
                 <MdLockOutline className="text-gray-400 m-2" />
                 <input
                   type="password"
                   name="password"
                   placeholder="Password"
                   className="bg-gray-100 outline-none text-sm flex-1"
+                  value={inpval.password}
+                  onChange={setdata}
                 />
               </div>
               {/* <div className="flex justify-between w-64 mb-5 ">
@@ -73,11 +108,11 @@ const LoginPage = () => {
                 <a href="#" className="text-xs ">Forgot Password?</a>
               </div> */}
               <a
-            href="#"
-            className="border-2 border-green-500 text-green-500 rounded-full px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white"
-          >
-            Login
-          </a>
+                onClick={loginData}
+                className="border-2 border-green-500 text-green-500 rounded-full px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white"
+              >
+                Login
+              </a>
             </div>
           </div>
         </div>
@@ -87,16 +122,16 @@ const LoginPage = () => {
           <p className="mb-10">
             fill up personal information and start jaurney with us.
           </p>
-          <a
-            href="#"
+          <Link
+            href="/register"
             className="border-2 border-white rounded-full px-12 py-2 inline-block font-semibold hover:bg-white hover:text-green-500"
           >
             Sign Up
-          </a>
+          </Link>
         </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default login;
