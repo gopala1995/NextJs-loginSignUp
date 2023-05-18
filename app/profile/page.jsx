@@ -1,11 +1,13 @@
 'use client'
 import { useUser } from "@auth0/nextjs-auth0/client";
 import React from "react";
+import Navbar from "../nav/page";
 
 const Dashboard = () => {
   const { user, isLoading, error } = useUser();
   return (
     <>
+    <Navbar/>
       {isLoading && (
         <p className="w-1/4 text-center m-auto text-yellow-600  text-4xl mt-[200px]">
           Loading.......
@@ -13,8 +15,8 @@ const Dashboard = () => {
       )}
       {user && (
         <div>
-          <div className="w-3/5 m-auto mt-16 ">
-            <div className=" flex flex-row px-4">
+          <div className="w-3/5 m-auto justify-center h-screen flex flex-col ">
+            <div className=" flex flex-row">
               <img
                 src={user.picture}
                 className="rounded-full border-2 w-20 h-20"

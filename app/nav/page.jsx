@@ -8,8 +8,7 @@ import Image from "next/image";
 
 const Navbar = () => {
   const { user, isLoading, error } = useUser();
-
-
+  
   return (
     <div>
       <AppBar>

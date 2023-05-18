@@ -1,4 +1,5 @@
 "use client";
+import axios from "axios";
 import Link from "next/link";
 import React, { useState } from "react";
 // import { redirect } from "next/navigation";
@@ -41,20 +42,12 @@ const signup = () => {
     } else if (password === "") {
       alert("Password is Required");
     } else {
-      const res = await fetch(
-        `https://nextjs-db-9eab1-default-rtdb.firebaseio.com/userData.json`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name,
-            email,
-            password,
-          }),
-        }
-      );
+      const res = await axios
+        .post(
+          "https://nextjs-db-9eab1-default-rtdb.firebaseio.com/userData.json",
+          inpval
+        )
+        .then((res) => console.log(res));
       if (res) {
         setInpval({
           name: "",
