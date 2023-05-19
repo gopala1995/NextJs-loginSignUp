@@ -74,7 +74,12 @@ const AddUser = () => {
   return (
     <div>
       <Form>
-        <Typography varient="h4">Add User</Typography>
+        <Typography
+          varient="h4"
+          className="mt-8 text-center font-bold text-2xl text-gray-500"
+        >
+          Add User
+        </Typography>
 
         <FormControl>
           <InputLabel>Name</InputLabel>
@@ -104,7 +109,11 @@ const AddUser = () => {
           />
         </FormControl>
         <FormControl>
-          <Button onClick={PostData} variant="contained">
+          <Button
+            onClick={PostData}
+            variant="contained"
+            className="bg-teal-600"
+          >
             Add User
           </Button>
         </FormControl>

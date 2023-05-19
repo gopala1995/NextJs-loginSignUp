@@ -52,7 +52,7 @@ const Dashboard = () => {
           </tbody>
         </table>
         <Pagination
-          count={7}
+          count={10}
           color="primary"
           defaultPage={page}
           onChange={(event, value) => setPage(value)}
