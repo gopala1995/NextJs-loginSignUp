@@ -25,8 +25,8 @@ const login = () => {
   const loginData = async (e) => {
     e.preventDefault();
     const { email, password } = inpval;
-    let data = {email,password}
-    const response = await fetch(
+    let data = { email, password };
+    await fetch(
       "https://nextjs-db-9eab1-default-rtdb.firebaseio.com/userData.json",
       {
         method: "POST",
