@@ -1,0 +1,44 @@
+.navbar {
+  background-color: #3b5de7;
+  vertical-align: middle;
+  position: fixed;
+  .toolbar {
+    padding: 0 4rem;
+    justify-content: space-between;
+  }
+}
+.left-navdiv {
+  justify-content: space-between;
+  display: flex;
+  vertical-align: middle;
+}
+
+.searchDiv {
+  justify-content: space-between;
+  flex-direction: column;
+  margin-left: 100px;
+  background-color: #3b5de7;
+  border-radius: 8px;
+  outline: none;
+  width: 200px;
+  height: 35px;
+  opacity: 1.5px;
+  .searchInp {
+    background-color: #3b5de7;
+    margin-left: 6px;
+    border-radius: 8px;
+    border: 0px;
+    outline: none;
+    padding: 4px;
+    width: 160px;
+  }
+}
+.logo1 {
+  width: 150px;
+  height: 19px;
+  line-height: 70px;
+  margin-top: 8px;
+  vertical-align: middle;
+  text-align: center;
+  padding: 2 3rem;
+}

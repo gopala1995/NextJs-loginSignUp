@@ -1,13 +1,13 @@
 'use client'
 import { useUser } from "@auth0/nextjs-auth0/client";
 import React from "react";
-import Navbar from "../nav/page";
+// import Navbar from "../nav/page";
 
 const Dashboard = () => {
   const { user, isLoading, error } = useUser();
   return (
     <>
-    <Navbar/>
+    {/* <Navbar/> */}
       {isLoading && (
         <p className="w-1/4 text-center m-auto text-yellow-600  text-4xl mt-[200px]">
           Loading.......
