@@ -27,7 +27,7 @@ const SideBar = () => {
   return (
     <div className="containar" style={{ marginTop: "100px" }}>
       <CssBaseline />
-      <Drawer variant="persistent" open={open} className="drawer">
+      <Drawer variant="persistent" open={true} className="drawer">
         <Toolbar />
         <List className="ListBar">
           {user ? (
