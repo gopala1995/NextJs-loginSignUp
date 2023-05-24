@@ -3,6 +3,7 @@ import { Mulish } from "next/font/google";
 import { UserProvider } from "@auth0/nextjs-auth0/client";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "./nav/page";
+import SideBar from "./sidebar/page";
 const mulish = Mulish({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,7 +18,7 @@ export default function RootLayout({ children }) {
         <>
           <UserProvider>
             <Navbar />
-
+           <SideBar/>
             {children}
           </UserProvider>
         </>

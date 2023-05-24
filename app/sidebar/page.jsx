@@ -1,3 +1,4 @@
+"use client";
 import {
   Drawer,
   IconButton,
@@ -6,47 +7,96 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  styled,
+  CssBaseline,
+  Toolbar,
 } from "@mui/material";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import AirplayIcon from '@mui/icons-material/Airplay';
+import { makeStyles } from "@mui/material";
+import AirplayIcon from "@mui/icons-material/Airplay";
 import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
-import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import BallotOutlinedIcon from '@mui/icons-material/BallotOutlined';import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
-import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import BallotOutlinedIcon from "@mui/icons-material/BallotOutlined";
 import React from "react";
+
 import "./sidebar.scss";
+import { useUser } from "@auth0/nextjs-auth0/client";
+import Link from "next/link";
 
 const SideBar = () => {
+  const { user, isLoading, error } = useUser();
   return (
-    <div>
-      <Drawer anchor="left" variant="persistent" open={open} className="drawer">
-        <List>
-          <AirplayIcon />
+    <div className="containar" style={{ marginTop: "100px" }}>
+      <CssBaseline />
+      <Drawer variant="persistent" open={open} className="drawer">
+        <Toolbar />
+        <List className="ListBar">
+          {user ? (
+            <>
+              <div className="imgDiv">
+                <ListItem>
+                  <img
+                    src={user.picture}
+                    alt="user picture"
+                    className="bar-img"
+                  />
+                </ListItem>
+              </div>
+              <ListItemText className="text-center">UX/UI Desiner</ListItemText>
+            </>
+          ) : (
+            <div className="imgDiv">
+              <ListItem>
+                <img
+                  src="avatar-48.png"
+                  alt="user picture"
+                  className="bar-img"
+                />
+              </ListItem>
+            </div>
+          )}
           <ListItem>
-            <ListItemText>Dashboard</ListItemText>
-          </ListItem>
-          <AccountCircleOutlinedIcon />
-          <ListItem>
-            {" "}
-            <ListItemText>Page</ListItemText>
+            <ListItemButton>
+              <AirplayIcon className="mr-2" />
+              <a href="/dashboard">
+                <ListItemText>Dashboard</ListItemText>
+              </a>
+            </ListItemButton>
           </ListItem>
 
-          <CalendarMonthIcon />
           <ListItem>
-            {" "}
-            <ListItemText>Calender</ListItemText>
+            <ListItemButton>
+              <AccountCircleOutlinedIcon className="mr-2" />
+              <ListItemText>Page</ListItemText>
+            </ListItemButton>
           </ListItem>
-          <BallotOutlinedIcon />
+
           <ListItem>
-            {" "}
-            <ListItemText>Table</ListItemText>
+            <ListItemButton>
+              <CalendarMonthIcon className="mr-2" />
+              <ListItemText>Calender</ListItemText>
+            </ListItemButton>
+          </ListItem>
+          <ListItem>
+            <ListItemButton>
+              <BallotOutlinedIcon className="mr-2" />
+
+              <ListItemText>Table</ListItemText>
+            </ListItemButton>
+          </ListItem>
+          <ListItem>
+            <ListItemButton>
+              <AccountCircleOutlinedIcon className="mr-2" />
+              <ListItemText>Page</ListItemText>
+            </ListItemButton>
+          </ListItem>
+
+          <ListItem>
+            <ListItemButton>
+              <CalendarMonthIcon className="mr-2" />
+              <ListItemText>Calender</ListItemText>
+            </ListItemButton>
           </ListItem>
         </List>
-
-        <div>
-          <IconButton></IconButton>
-        </div>
       </Drawer>
     </div>
   );

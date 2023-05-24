@@ -8,13 +8,14 @@ import {
   FaRegEnvelope,
 } from "react-icons/fa";
 import { MdLockOutline } from "react-icons/md";
+import { toast } from "react-toastify";
 
 const login = () => {
   const [inpval, setInpval] = useState({
     email: "",
     password: "",
   });
-  console.log(inpval);
+  // console.log(inpval);
 
   const setdata = (e) => {
     e.preventDefault();
@@ -24,25 +25,18 @@ const login = () => {
 
   const loginData = async (e) => {
     e.preventDefault();
-    const { email, password } = inpval;
-    let data = { email, password };
+    // console.log("Hello form");
     await fetch(
-      "https://nextjs-db-9eab1-default-rtdb.firebaseio.com/userData.json",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
+      "https://nextjs-db-9eab1-default-rtdb.firebaseio.com/userData.json/" +
+        inpval
     ).then((res) => {
-      if (res.status === 200) {
-        alert("Successfully loged in");
-      } else {
-        alert("Please check your login information.");
-      }
-      console.log("Datttttta", res.json());
-    });
+      return res.json();
+    }).then((resp) => {
+      toast.success("Logedin Successfully")
+      console.log(resp);
+    }).catch((err)=>{
+      toast.error("Login failed due to :"+ err.message)
+    })
   };
 
   return (
@@ -79,6 +73,7 @@ const login = () => {
             </div>
             <p className="text-gray-400 my-3">or use your email account</p>
             <div className="flex flex-col items-center">
+            <form onSubmit={loginData}>
               <div className="bg-gray-100 w-64 p-2 flex items-center mb-3">
                 <FaRegEnvelope className="text-gray-400 m-2" />
                 <input
@@ -107,12 +102,13 @@ const login = () => {
               </label>
                 <a href="#" className="text-xs ">Forgot Password?</a>
               </div> */}
-              <a
-                onClick={loginData}
+              <button type="submit"
+                
                 className="border-2 border-green-500 text-green-500 rounded-full px-12 py-2 inline-block font-semibold hover:bg-green-500 hover:text-white"
               >
                 Login
-              </a>
+              </button>
+              </form>
             </div>
           </div>
         </div>

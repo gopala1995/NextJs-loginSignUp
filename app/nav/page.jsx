@@ -25,7 +25,7 @@ const Navbar = () => {
   const { user, isLoading, error } = useUser();
 
   return (
-    <>
+    <div>
       <div>
         <AppBar position="static" className="navbar">
           <Toolbar className="toolbar">
@@ -56,13 +56,11 @@ const Navbar = () => {
                     alt="user picture"
                     className="rounded-full mr-4"
                   />
-                  {/* <MenuItem>Profile</MenuItem>
-                  <MenuItem>Logout</MenuItem> */}
-                  {/* </Menu> */}
+                  
                 </IconButton>
 
                 <Button sx={{ marginLeft: "auto" }} color="inherit">
-                  <Link href="/api/auth/logout">Logout</Link>
+                  <a href="/api/auth/logout">Logout</a>
                 </Button>
               </div>
             ) : (
@@ -71,15 +69,23 @@ const Navbar = () => {
                   <NotificationsNoneOutlinedIcon />
                 </Badge>
                 <Button sx={{ marginLeft: "auto" }} color="inherit">
-                  <Link href="/api/auth/login">Login</Link>
+                  <a href="/api/auth/login">Login</a>
                 </Button>
               </div>
             )}
           </Toolbar>
         </AppBar>
       </div>
-      <SideBar />
-    </>
+      {/* <br/>
+      <br/> */}
+      <div className="dash-bottom-div">
+        <h1>DASHBOARD</h1>
+        <p>Welcome to Qovex Dashboard</p>
+      </div>
+   <br/>
+   <br/>
+      {/* <SideBar /> */}
+    </div>
   );
 };
 

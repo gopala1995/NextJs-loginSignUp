@@ -1,8 +1,11 @@
 .navbar {
+  
   background-color: #3b5de7;
   vertical-align: middle;
   position: fixed;
   .toolbar {
+    position: static;
+    background-color: #3b5de7;
     padding: 0 4rem;
     justify-content: space-between;
   }
@@ -41,4 +44,24 @@
   vertical-align: middle;
   text-align: center;
   padding: 2 3rem;
+}
+.dash-bottom-div {
+  position: absolute;
+  background-color: #3b5de7;
+  height: 100px;
+  width: 100%;
+  z-index: -1;
+  // margin-top: 100px;
+  h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    display: inline-flex;
+    margin: 50px 0 0 27%;
+  }
+  p {
+    margin-top: 60px;
+    float: right;
+    color: rgb(209, 206, 206);
+  }
 }
