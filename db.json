@@ -233,6 +233,44 @@
       "name": "Yogesh Bhat",
       "email": "yogesh@gmail.com",
       "phone": "98877665511"
+    },
+    {
+      "name": "Bisleri Bottel",
+      "email": "bisleri@12.gmail.com",
+      "phone": "98285773260",
+      "id": 40
+    },
+    {
+      "name": "Bisleri Bottel",
+      "email": "bisleri@12.gmail.com",
+      "phone": "98285773260",
+      "id": 41
+    },
+    {
+      "name": "Rupesh Kumar",
+      "email": "rupesh@gmail.com",
+      "phone": "0235237095",
+      "id": 42
+    },
+    {
+      "name": "Kartik Kumar",
+      "email": "kartik@gmail.com",
+      "phone": "023450953",
+      "id": 43
+    },
+    {
+      "name": "Reract Js",
+      "email": "react@gmail",
+      "phone": "839834994349",
+      "id": 44
+    },
+    {
+      "name": "Delll",
+      "username": "user@dell",
+      "email": "dell@gmail.com",
+      "password": "dell@123",
+      "gender": "female",
+      "id": 45
     }
   ]
 }

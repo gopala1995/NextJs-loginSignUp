@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import {
+  Button,
   makeStyles,
   Container,
   Paper,
@@ -43,6 +44,7 @@ const Dashboard = () => {
 
   return (
     <MainCont>
+    <Button variant="contained" className="bg-green-600 float-right" href="/adduser">Add User+</Button>
       <TableContainer component={Paper}>
         <Table>
           <TableHead>

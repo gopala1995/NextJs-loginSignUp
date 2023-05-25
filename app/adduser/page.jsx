@@ -10,10 +10,9 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import axios from "axios";
-// import { redirect } from "next/navigation";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
-// import { useHistory, useNavigate } from "react-router-dom";
 
 const Form = styled(FormGroup)`
   width: 50%;
@@ -24,7 +23,6 @@ const Form = styled(FormGroup)`
 `;
 
 const AddUser = () => {
-  const { push } = useRouter();
   const [inpval, setInpval] = useState({
     name: "",
     email: "",
@@ -43,22 +41,20 @@ const AddUser = () => {
     } else if (phone === "") {
       alert("phone is Required");
     } else {
-      const res = await axios
+      await axios
         .post("http://127.0.0.1:3001/user", inpval)
-        .then((res) => console.log(res));
-      if (res) {
-        setInpval({
-          name: "",
-          email: "",
-          phone: "",
+        .then((res) => {
+          if (res) {
+            setInpval({
+              name: "",
+              email: "",
+              phone: "",
+            });
+            toast.success("successfully registered");
+          } else {
+            toast.error("Login Failed");
+          }
         });
-        alert("successfully registered");
-        useEffect(() => {
-          push("/dashboard");
-        }, []);
-      } else {
-        alert("Plz fill the data");
-      }
     }
   };
 
@@ -72,7 +68,7 @@ const AddUser = () => {
   };
 
   return (
-    <div>
+    <div className="ml-[20%]">
       <Form>
         <Typography
           varient="h4"

@@ -50,7 +50,7 @@ const signup = () => {
       toast.warning("gender is Required");
     } else {
       await fetch(
-        "https://nextjs-db-9eab1-default-rtdb.firebaseio.com/userData.json",
+        "http://127.0.0.1:3001/user",
         {
           method: "POST",
           headers: {
