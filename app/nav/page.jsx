@@ -56,7 +56,6 @@ const Navbar = () => {
                     alt="user picture"
                     className="rounded-full mr-4"
                   />
-                  
                 </IconButton>
 
                 <Button sx={{ marginLeft: "auto" }} color="inherit">
@@ -71,19 +70,24 @@ const Navbar = () => {
                 <Button sx={{ marginLeft: "auto" }} color="inherit">
                   <a href="/api/auth/login">Login</a>
                 </Button>
+                {/* <Button sx={{ marginLeft: "auto" }} color="inherit">
+                  <a href="https://dev-dln121zygrcco352.us.auth0.com/u/reset-password/request/Username-Password-Authentication?state=hKFo2SBBUW9XNF8zcUdIYkctSWpwVDFsaGZmWDRjcDF4c2NSR6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIGUtemlfMDVwSTd0T2NOdVlySUhCNWNJN1ZUSGRtMkxmo2NpZNkgWlBTaGw3R2dLMGkxakc3MHJBVFhZWnZMUERBYWU3RVI">
+                    forgot password
+                  </a>
+                </Button> */}
               </div>
             )}
           </Toolbar>
         </AppBar>
       </div>
-      <br/>
-      <br/>
+      <br />
+      <br />
       <div className="dash-bottom-div">
         <h1>DASHBOARD</h1>
         <p>Welcome to Qovex Dashboard</p>
       </div>
-   <br/>
-   <br/>
+      <br />
+      <br />
       {/* <SideBar /> */}
     </div>
   );
