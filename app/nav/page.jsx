@@ -23,7 +23,7 @@ import SideBar from "../sidebar/page";
 
 const Navbar = () => {
   const { user, isLoading, error } = useUser();
-
+ console.log("dataaa",user);
   return (
     <div>
       <div>
